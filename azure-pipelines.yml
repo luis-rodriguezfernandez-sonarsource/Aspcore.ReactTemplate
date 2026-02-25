@@ -37,6 +37,13 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- task: PowerShell@2
+  displayName: Show directory tree for .sonarqube/out
+  inputs:
+    targetType: 'inline'
+    script: |
+      tree "$(Agent.BuildDirectory)/.sonarqube/out"
 
 - task: SonarCloudAnalyze@3
 
