@@ -21,9 +21,9 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: SonarQubePrepare@8
+- task: SonarCloudPrepare@8
   inputs:
-    SonarQube: 'lurodrig-sonarqube.ngrok.io'
+    SonarQube: 'sonarcloud.io'
     scannerMode: 'dotnet'
     projectKey: 'Aspcore.ReactTemplate'
     extraProperties: 'sonar.verbose=true'
@@ -35,5 +35,5 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarQubeAnalyze@8
+- task: SonarCloudAnalyze@8
 
