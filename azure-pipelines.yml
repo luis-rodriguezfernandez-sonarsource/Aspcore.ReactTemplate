@@ -21,7 +21,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: SonarCloudPrepare@4
+- task: SonarCloudPrepare@3
   inputs:
     SonarQube: 'sonarcloud.io'
     organization: 'luisrodriguezfernandez'
@@ -31,12 +31,12 @@ steps:
       sonar.verbose=true
       sonar.projectKey=luisrodriguezfernandez_Aspcore.ReactTemplate
 
-- task: VSBuild@1
+- task: MSBuild@1
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarCloudAnalyze@4
+- task: SonarCloudAnalyze@3
 
