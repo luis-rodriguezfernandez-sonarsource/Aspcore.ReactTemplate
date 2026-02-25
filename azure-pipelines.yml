@@ -24,9 +24,12 @@ steps:
 - task: SonarCloudPrepare@4
   inputs:
     SonarQube: 'sonarcloud.io'
+    organization: 'luisrodriguezfernandez'
     scannerMode: 'dotnet'
     projectKey: 'Aspcore.ReactTemplate'
-    extraProperties: 'sonar.verbose=true'
+    extraProperties: | 
+      sonar.verbose=true
+      sonar.projectKey=luisrodriguezfernandez_Aspcore.ReactTemplate
 
 - task: VSBuild@1
   inputs:
