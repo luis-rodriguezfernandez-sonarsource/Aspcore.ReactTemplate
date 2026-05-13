@@ -56,8 +56,8 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin `
-            /k:"luisrodriguezfernandez_Aspcore.ReactTemplate" `
-            /o:"luisrodriguezfernandez" `
+            /k:"luis-rodriguezfernandez-sonarsource_Aspcore.ReactTemplate" `
+            /o:"luis-rodriguezfernandez-sonarsource" `
             /d:sonar.host.url="https://sonarcloud.io" `
             /d:sonar.token="$env:SONAR_TOKEN" `
             /d:sonar.verbose=true
